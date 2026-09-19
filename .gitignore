@@ -1,0 +1,15 @@
+.DS_Store
+__pycache__/
+*.pyc
+
+# iCloud conflict duplicates. The Desktop is synced, and any tool that rewrites
+# a tree can make the sync daemon spawn "SKILL 2.md" next to "SKILL.md".
+# Mistral's loader ignores them, so they fail silently rather than loudly.
+* 2.md
+* 2.py
+* 2.json
+* 2.toml
+* 2.txt
+
+# verify.py and selftest.py scratch trees
+.verify-tmp/

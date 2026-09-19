@@ -1,0 +1,688 @@
+{
+  "repo": "awesome-mistral-vibe-prompts",
+  "for": "Mistral Vibe Work, scheduled tasks and Chat",
+  "counts": {
+    "work": 21,
+    "scheduled": 12,
+    "chat": 16,
+    "total": 49
+  },
+  "prompts_that_write": 1,
+  "prompts": [
+    {
+      "name": "ai-use-case-intake",
+      "mode": "work",
+      "category": "governance",
+      "summary": "Turn a proposed AI use case into a structured intake record, with the unanswered governance questions listed as questions.",
+      "use_when": "Use when someone proposes an AI use case and you need it written down in a comparable shape before anyone assesses it.",
+      "inputs": [
+        "The proposal, thread or meeting note describing the use case",
+        "Your own intake template, if you have one"
+      ],
+      "writes": "none",
+      "outputs": "An intake record with purpose, data, decision impact, human role and reversibility, plus Unanswered questions routed to named owners.",
+      "path": "prompts/work/ai-use-case-intake.md"
+    },
+    {
+      "name": "change-announcement-draft",
+      "mode": "work",
+      "category": "comms",
+      "summary": "Draft an internal announcement for a change, with the questions people will ask answered or explicitly listed as unanswered.",
+      "use_when": "Use when a change is about to affect colleagues and you need an announcement that survives the first ten replies.",
+      "inputs": [
+        "The change description, dates and affected population",
+        "Any support, training or FAQ material that already exists"
+      ],
+      "writes": "none",
+      "outputs": "A draft announcement plus an Anticipated questions list split into answered and unanswered, and a What I invented check.",
+      "path": "prompts/work/change-announcement-draft.md",
+      "builtin_overlap": "internal-comms"
+    },
+    {
+      "name": "claim-check-pack",
+      "mode": "work",
+      "category": "research",
+      "summary": "Check the factual claims in a piece of writing one by one and return supported, contradicted, mixed or not found with sources.",
+      "use_when": "Use when something is about to be published or sent and you need each factual claim checked against a source rather than read for tone.",
+      "inputs": [
+        "The draft text, document or post",
+        "Web search"
+      ],
+      "writes": "none",
+      "outputs": "One row per claim with a verdict, the source URL, the date on that page, and a separate list of claims that cannot be checked.",
+      "path": "prompts/work/claim-check-pack.md"
+    },
+    {
+      "name": "contract-renewal-risk-read",
+      "mode": "work",
+      "category": "documents",
+      "summary": "Read a contract before a renewal and return the dates, the money, the exits and the clauses that move without you.",
+      "use_when": "Use when a contract is coming up for renewal and you need the mechanical terms in front of you before any conversation with the vendor.",
+      "inputs": [
+        "The contract, and any amendment or order form attached to it"
+      ],
+      "writes": "none",
+      "outputs": "A table of the mechanical terms with clause references, plus Automatic behaviour, Questions for the vendor, and Not in this document.",
+      "path": "prompts/work/contract-renewal-risk-read.md",
+      "builtin_overlap": "document-review"
+    },
+    {
+      "name": "cost-driver-breakdown",
+      "mode": "work",
+      "category": "analysis",
+      "summary": "Break a cost line into its drivers from the data you supply, showing the arithmetic and refusing to guess at missing pieces.",
+      "use_when": "Use when a cost has moved and you need to know which components moved, before anyone explains it in a meeting.",
+      "inputs": [
+        "The cost export, invoice detail or billing report for both periods"
+      ],
+      "writes": "none",
+      "outputs": "A driver table with both periods, the delta, the share of the total move, the arithmetic shown, and an Unexplained residual line.",
+      "path": "prompts/work/cost-driver-breakdown.md"
+    },
+    {
+      "name": "decision-log-entry",
+      "mode": "work",
+      "category": "meetings",
+      "summary": "Turn a thread or a set of notes into one decision log entry, with the decision quoted and the alternatives recorded.",
+      "use_when": "Use when a decision has just been taken in a meeting or a thread and you need it written down before the reasoning evaporates.",
+      "inputs": [
+        "The thread, notes or transcript where the decision was taken",
+        "Any document the decision refers to"
+      ],
+      "writes": "none",
+      "outputs": "A single log entry with Decision, Date and forum, Decided by, Because, Alternatives considered, Consequences, Revisit when, and Unresolved.",
+      "path": "prompts/work/decision-log-entry.md"
+    },
+    {
+      "name": "exec-update-draft",
+      "mode": "work",
+      "category": "comms",
+      "summary": "Draft a short leadership update from the evidence you already have, with every claim tied to a source.",
+      "use_when": "Use when you owe someone senior a written update and the material is scattered across tickets, documents and threads.",
+      "inputs": [
+        "The tracker or project board",
+        "The document or deck the work produced",
+        "Any thread where the decisions were taken"
+      ],
+      "writes": "none",
+      "outputs": "A draft update under 300 words with Position, Changes, Risks, Asks, and a separate evidence list keyed to each claim.",
+      "path": "prompts/work/exec-update-draft.md"
+    },
+    {
+      "name": "inbox-triage-plan",
+      "mode": "work",
+      "category": "inbox",
+      "summary": "Sort an unread mailbox into what needs you, what needs a decision and what can wait, without touching a single message.",
+      "use_when": "Use when you are behind on mail and need a plan for the next hour instead of a folder full of unread items.",
+      "inputs": [
+        "Gmail or Outlook"
+      ],
+      "writes": "none",
+      "outputs": "Four buckets with one line per message, its ask, its deadline, and a separate list of what was unclear.",
+      "path": "prompts/work/inbox-triage-plan.md"
+    },
+    {
+      "name": "meeting-prep-brief",
+      "mode": "work",
+      "category": "meetings",
+      "summary": "Build a one page brief for a specific meeting from the invite, the thread history and the last decisions taken.",
+      "use_when": "Use when you are walking into a meeting you did not organise and need the history, the open questions and the likely asks.",
+      "inputs": [
+        "The calendar invite",
+        "Mail or chat threads with the attendees",
+        "Any document attached to the invite"
+      ],
+      "writes": "none",
+      "outputs": "A brief with Purpose, Who is in the room, What happened last time, Open questions, Likely asks, and What I could not find.",
+      "path": "prompts/work/meeting-prep-brief.md",
+      "builtin_overlap": "meeting-prep"
+    },
+    {
+      "name": "metric-definition-audit",
+      "mode": "work",
+      "category": "analysis",
+      "summary": "Collect every definition of a metric in use across your documents and show where they disagree.",
+      "use_when": "Use when two teams report the same metric with different numbers and you need to find out whether they are measuring the same thing.",
+      "inputs": [
+        "The reports, dashboards specs, documents or threads where the metric appears"
+      ],
+      "writes": "none",
+      "outputs": "One row per definition found with its source and date, a disagreement matrix, and a list of the questions the documents cannot answer.",
+      "path": "prompts/work/metric-definition-audit.md"
+    },
+    {
+      "name": "policy-gap-questions",
+      "mode": "work",
+      "category": "documents",
+      "summary": "Compare a policy against a framework or standard you supply and return the gaps as questions rather than as findings.",
+      "use_when": "Use when you have to review an internal policy against a framework and want the gaps in a form you can take to the owner.",
+      "inputs": [
+        "The policy document",
+        "The framework, standard or control set you are comparing against"
+      ],
+      "writes": "none",
+      "outputs": "A control by control table with Addressed, Partly addressed, Not found, plus quoted evidence and one question per gap.",
+      "path": "prompts/work/policy-gap-questions.md"
+    },
+    {
+      "name": "regulation-change-watch",
+      "mode": "work",
+      "category": "research",
+      "summary": "Establish what a named regulation currently says on the points you care about, with the official text quoted and dated.",
+      "use_when": "Use when you need the current state of a specific regulation on specific questions, and secondhand summaries are not good enough.",
+      "inputs": [
+        "Web search, pointed at the official publisher",
+        "Any internal note stating what you currently believe"
+      ],
+      "writes": "none",
+      "outputs": "A question by question table quoting the official text with its identifier and date, plus Amended, Disputed and Not established.",
+      "path": "prompts/work/regulation-change-watch.md"
+    },
+    {
+      "name": "reply-drafts-for-review",
+      "mode": "work",
+      "category": "inbox",
+      "summary": "Create unsent reply drafts for a named set of messages, one at a time, with a stated reason for each.",
+      "use_when": "Use when you have triaged your mail and want the routine replies written but not sent.",
+      "inputs": [
+        "Gmail, where drafting is the documented ceiling"
+      ],
+      "writes": [
+        "Creates draft messages in the mail client. Work asks for approval before each write."
+      ],
+      "outputs": "One unsent draft per message, plus a table of what each draft commits you to and which ones were left for you to write.",
+      "path": "prompts/work/reply-drafts-for-review.md"
+    },
+    {
+      "name": "rfp-requirement-extract",
+      "mode": "work",
+      "category": "documents",
+      "summary": "Turn a tender or RFP document into a numbered requirement table with page references and an explicit list of ambiguities.",
+      "use_when": "Use when a tender, RFP or statement of work arrives and you need every requirement as a row before anyone starts writing answers.",
+      "inputs": [
+        "The RFP, tender or statement of work, including annexes"
+      ],
+      "writes": "none",
+      "outputs": "A numbered requirement table with page and clause references, plus Ambiguous, Conflicting, and Not a requirement.",
+      "path": "prompts/work/rfp-requirement-extract.md",
+      "builtin_overlap": "structured-extraction"
+    },
+    {
+      "name": "risk-register-draft",
+      "mode": "work",
+      "category": "planning",
+      "summary": "Turn your material into a draft risk register where every risk carries the evidence it was inferred from.",
+      "use_when": "Use when you need a first risk register for a project and want it built from what people actually wrote rather than from a generic list.",
+      "inputs": [
+        "Project documents, plans, threads or notes"
+      ],
+      "writes": "none",
+      "outputs": "One row per risk with its evidence quoted, its owner blank, and blank likelihood and impact cells for a human to score.",
+      "path": "prompts/work/risk-register-draft.md"
+    },
+    {
+      "name": "rollout-plan-draft",
+      "mode": "work",
+      "category": "planning",
+      "summary": "Draft a staged rollout plan with entry and exit criteria per stage, and a named list of what is not yet decided.",
+      "use_when": "Use when a change has to reach a population in stages and you need a first plan that makes the unknowns visible.",
+      "inputs": [
+        "What is being rolled out, to whom, and by when",
+        "Any constraint document: change windows, approvals, training, licences"
+      ],
+      "writes": "none",
+      "outputs": "A stage table with entry and exit criteria, a rollback line per stage, and separate Assumptions, Dependencies and Open decisions lists.",
+      "path": "prompts/work/rollout-plan-draft.md"
+    },
+    {
+      "name": "spreadsheet-anomaly-read",
+      "mode": "work",
+      "category": "analysis",
+      "summary": "Read a spreadsheet or export and report what looks wrong in the data before anyone draws a conclusion from it.",
+      "use_when": "Use when you have been handed a file to analyse and want the data quality problems surfaced before the analysis, not after.",
+      "inputs": [
+        "The spreadsheet, CSV or export"
+      ],
+      "writes": "none",
+      "outputs": "A structure summary, a row per anomaly with the cells involved, and separate lists for What I assumed and What I could not check.",
+      "path": "prompts/work/spreadsheet-anomaly-read.md",
+      "builtin_overlap": "data-analysis"
+    },
+    {
+      "name": "stakeholder-reframe",
+      "mode": "work",
+      "category": "comms",
+      "summary": "Reframe the same material for a named audience, showing what was cut and what claim each audience is being asked to accept.",
+      "use_when": "Use when one piece of work has to be told to a second audience and you want the translation visible rather than invisible.",
+      "inputs": [
+        "The original material",
+        "Who the new audience is and what decision they face"
+      ],
+      "writes": "none",
+      "outputs": "The reframed piece, a table of what was cut, added or softened, and the single claim the audience must accept for it to work.",
+      "path": "prompts/work/stakeholder-reframe.md",
+      "builtin_overlap": "stakeholder-translator"
+    },
+    {
+      "name": "support-theme-synthesis",
+      "mode": "work",
+      "category": "customer",
+      "summary": "Theme a batch of support tickets or feedback with counts, quoted evidence and an explicit list of what cannot be concluded.",
+      "use_when": "Use when you have a pile of tickets, reviews or survey answers and need the themes with numbers rather than an impression.",
+      "inputs": [
+        "The ticket export, review set or survey responses"
+      ],
+      "writes": "none",
+      "outputs": "Themed groups with record counts and shares, anonymised quotes keyed to record ids, plus Contradictions and Cannot conclude.",
+      "path": "prompts/work/support-theme-synthesis.md"
+    },
+    {
+      "name": "vendor-landscape-scan",
+      "mode": "work",
+      "category": "research",
+      "summary": "Scan a vendor category against criteria you set, with every claim quoted from a dated page and the gaps named.",
+      "use_when": "Use when you need a first pass at who is in a market and what they claim, before anyone books a demo.",
+      "inputs": [
+        "Web search",
+        "Any vendor documents or pricing pages you already hold"
+      ],
+      "writes": "none",
+      "outputs": "A vendor by criterion table where every cell carries a quote, a URL and a page date, plus Could not establish and Contradictions.",
+      "path": "prompts/work/vendor-landscape-scan.md",
+      "builtin_overlap": "deep-research"
+    },
+    {
+      "name": "weekly-project-catchup",
+      "mode": "work",
+      "category": "status",
+      "summary": "Catch up on one project across mail, chat and the tracker, and separate what moved from what is stuck.",
+      "use_when": "Use when you have been away from a project and need what changed, what is blocked and what needs you, before you walk into a meeting.",
+      "inputs": [
+        "Gmail or Outlook",
+        "Slack",
+        "Linear, Atlassian or the tracker you use"
+      ],
+      "writes": "none",
+      "outputs": "A dated brief with What moved, What is stuck, Decisions taken, What needs you, and Not covered.",
+      "path": "prompts/work/weekly-project-catchup.md"
+    },
+    {
+      "name": "access-review-prep",
+      "mode": "scheduled",
+      "category": "governance",
+      "summary": "A quarterly pack that assembles who has access to what, ready for the owners to review, with no recommendation attached.",
+      "use_when": "Use when access reviews stall because assembling the lists takes longer than reviewing them.",
+      "inputs": [
+        "The access exports or listings, in Drive, SharePoint or a repository"
+      ],
+      "writes": "none",
+      "outputs": "Per system membership lists grouped by owner, plus flags for dormant, unmatched and unowned entries.",
+      "path": "prompts/scheduled/access-review-prep.md"
+    },
+    {
+      "name": "backlog-ageing-report",
+      "mode": "scheduled",
+      "category": "projects",
+      "summary": "A fortnightly read on how old the backlog is, where items sit untouched, and which ones nobody owns.",
+      "use_when": "Use when the backlog keeps growing and nobody can say which parts of it are actually dead.",
+      "inputs": [
+        "Linear, Atlassian or GitHub"
+      ],
+      "writes": "none",
+      "outputs": "Age distributions by bucket and by state, the oldest untouched items, and No owner and Never triaged lists.",
+      "path": "prompts/scheduled/backlog-ageing-report.md"
+    },
+    {
+      "name": "competitor-watch",
+      "mode": "scheduled",
+      "category": "research",
+      "summary": "A weekly read on a named list of competitors, restricted to what changed on their own public pages.",
+      "use_when": "Use when you want a steady signal on a handful of competitors without a daily feed of commentary.",
+      "inputs": [
+        "The named list of competitors and the pages that matter"
+      ],
+      "writes": "none",
+      "outputs": "One line per competitor with what changed and the link, a No change list, and a Could not check list.",
+      "path": "prompts/scheduled/competitor-watch.md"
+    },
+    {
+      "name": "doc-change-watch",
+      "mode": "scheduled",
+      "category": "documents",
+      "summary": "A weekly read on which documents in a named space changed, who changed them, and which ones are overdue a review.",
+      "use_when": "Use when a policy or procedure space matters and nobody is watching what quietly changed in it.",
+      "inputs": [
+        "Google Drive, SharePoint or Notion, and the specific space or folder"
+      ],
+      "writes": "none",
+      "outputs": "Changed documents with author and date, an Overdue review list, and a No owner list.",
+      "path": "prompts/scheduled/doc-change-watch.md"
+    },
+    {
+      "name": "inbox-triage-digest",
+      "mode": "scheduled",
+      "category": "inbox",
+      "summary": "A daily read-only digest of what arrived in your mailbox overnight, ordered by who is waiting on you.",
+      "use_when": "Use when you want the state of your mailbox in one note each morning instead of opening it cold.",
+      "inputs": [
+        "Gmail or Outlook"
+      ],
+      "writes": "none",
+      "outputs": "Four short buckets, the oldest unanswered ask, and a list of anything the run could not read.",
+      "path": "prompts/scheduled/inbox-triage-digest.md"
+    },
+    {
+      "name": "kpi-pack-prep",
+      "mode": "scheduled",
+      "category": "reporting",
+      "summary": "A monthly figures pack built only from the sources, with each number carrying its definition, period and denominator.",
+      "use_when": "Use when the monthly pack takes a day to assemble and half the meeting is spent questioning the numbers.",
+      "inputs": [
+        "The source exports or dashboards, in Drive, SharePoint, Notion or Stripe"
+      ],
+      "writes": "none",
+      "outputs": "One block per metric with the figure, its definition, its period and its source, plus Missing and Changed definition lists.",
+      "path": "prompts/scheduled/kpi-pack-prep.md"
+    },
+    {
+      "name": "overnight-incident-digest",
+      "mode": "scheduled",
+      "category": "operations",
+      "summary": "A morning digest of what broke overnight, taken from the channels and tickets themselves, with the open questions listed.",
+      "use_when": "Use when incidents are discussed across a chat tool and a tracker and you want one read before the stand-up.",
+      "inputs": [
+        "Slack",
+        "Linear, Atlassian or GitHub"
+      ],
+      "writes": "none",
+      "outputs": "One block per incident with timeline, current state as stated, who is on it, and what is still unanswered.",
+      "path": "prompts/scheduled/overnight-incident-digest.md"
+    },
+    {
+      "name": "pipeline-hygiene-check",
+      "mode": "scheduled",
+      "category": "revenue",
+      "summary": "A weekly read on the records in your pipeline that are stale, incomplete or internally inconsistent.",
+      "use_when": "Use when pipeline reviews keep turning into arguments about whether the data is right.",
+      "inputs": [
+        "The pipeline source: Notion, Linear, Atlassian or an exported sheet in Drive or SharePoint"
+      ],
+      "writes": "none",
+      "outputs": "Grouped exception lists with record links and counts, plus the totals with and without the exceptions.",
+      "path": "prompts/scheduled/pipeline-hygiene-check.md"
+    },
+    {
+      "name": "project-rollup",
+      "mode": "scheduled",
+      "category": "projects",
+      "summary": "A weekly read-only rollup across your tracker and channels, built from what moved and what did not.",
+      "use_when": "Use when you write the same weekly status by hand from three tools every Friday.",
+      "inputs": [
+        "Linear, Atlassian or GitHub",
+        "Slack or Notion, if decisions live there"
+      ],
+      "writes": "none",
+      "outputs": "Per workstream progress, slipped dates with old and new, items with no owner, and a Went quiet list.",
+      "path": "prompts/scheduled/project-rollup.md"
+    },
+    {
+      "name": "regulation-diff-watch",
+      "mode": "scheduled",
+      "category": "governance",
+      "summary": "A weekly check of named regulator and standards pages for changes, quoted and linked, with no interpretation.",
+      "use_when": "Use when a small set of official sources governs your work and you need the change before the newsletter tells you.",
+      "inputs": [
+        "The named list of official pages to watch"
+      ],
+      "writes": "none",
+      "outputs": "Changed pages with quoted before and after where available, a No change list, and a Could not check list.",
+      "path": "prompts/scheduled/regulation-diff-watch.md"
+    },
+    {
+      "name": "spend-anomaly-watch",
+      "mode": "scheduled",
+      "category": "finance",
+      "summary": "A weekly read on charges that moved against their own history, with the arithmetic shown and no cause attached.",
+      "use_when": "Use when spend is spread across vendors and nobody notices a change until the quarter closes.",
+      "inputs": [
+        "Stripe, or an export in Drive or SharePoint"
+      ],
+      "writes": "none",
+      "outputs": "Ranked changes with both figures and the difference, new and stopped charges, and what could not be compared.",
+      "path": "prompts/scheduled/spend-anomaly-watch.md"
+    },
+    {
+      "name": "vendor-renewal-lookahead",
+      "mode": "scheduled",
+      "category": "finance",
+      "summary": "A monthly look at contracts reaching a notice window, with the dates counted and the missing documents named.",
+      "use_when": "Use when auto-renewal has already cost you once and nobody owns the calendar.",
+      "inputs": [
+        "Google Drive, SharePoint or Notion, and the contract folder or register"
+      ],
+      "writes": "none",
+      "outputs": "Contracts ordered by notice deadline, the arithmetic behind each date, and lists for missing terms and missing owners.",
+      "path": "prompts/scheduled/vendor-renewal-lookahead.md"
+    },
+    {
+      "name": "analogy-check",
+      "mode": "chat",
+      "category": "explaining",
+      "summary": "Test an analogy you are about to use by finding where it holds, where it breaks, and what a listener would wrongly conclude.",
+      "use_when": "Use when you are about to build an explanation or a pitch on a comparison.",
+      "inputs": [
+        "The analogy, stated as X is like Y",
+        "Who will hear it and what you want them to conclude"
+      ],
+      "writes": "none",
+      "outputs": "Where it holds, where it breaks, the wrong conclusions it invites, and two alternatives.",
+      "path": "prompts/chat/analogy-check.md"
+    },
+    {
+      "name": "assumption-list",
+      "mode": "chat",
+      "category": "thinking",
+      "summary": "Surface the assumptions a plan or argument rests on, ranked by what happens if each one is wrong.",
+      "use_when": "Use when a plan feels solid and you want the things nobody stated written down.",
+      "inputs": [
+        "The plan, argument or proposal"
+      ],
+      "writes": "none",
+      "outputs": "Stated and unstated assumptions, each with its consequence if false, ranked by damage and cheapest check.",
+      "path": "prompts/chat/assumption-list.md"
+    },
+    {
+      "name": "error-message-decode",
+      "mode": "chat",
+      "category": "technical",
+      "summary": "Read an error message back in plain words, separate what it states from what it implies, and rank the causes by how cheap they are to check.",
+      "use_when": "Use when an error is unfamiliar and you want the reading before you start changing things.",
+      "inputs": [
+        "The error message in full, and what you were doing when it appeared"
+      ],
+      "writes": "none",
+      "outputs": "A plain reading, what the message does and does not state, ranked candidate causes with a cheap check for each.",
+      "path": "prompts/chat/error-message-decode.md"
+    },
+    {
+      "name": "explain-to-a-newcomer",
+      "mode": "chat",
+      "category": "explaining",
+      "summary": "Explain something to a named level of prior knowledge, with the terms that have to be learned separated from the ones that can wait.",
+      "use_when": "Use when you have to bring somebody up to speed and you have stopped being able to tell what is obvious.",
+      "inputs": [
+        "The thing to explain",
+        "Who the newcomer is and what they already know"
+      ],
+      "writes": "none",
+      "outputs": "A layered explanation, a must-know terms list, a can-wait list, and the questions they will ask next.",
+      "path": "prompts/chat/explain-to-a-newcomer.md"
+    },
+    {
+      "name": "jargon-decode",
+      "mode": "chat",
+      "category": "explaining",
+      "summary": "Decode the unfamiliar terms in a piece of text, separating the ones with a real definition from the ones that are context dependent.",
+      "use_when": "Use when you are reading something in an unfamiliar area and half the nouns are doing unknown work.",
+      "inputs": [
+        "The text containing the jargon",
+        "The field it comes from, if you know it"
+      ],
+      "writes": "none",
+      "outputs": "A term table with plain meanings and confidence, a list of terms that mean different things in different places, and one plain paragraph.",
+      "path": "prompts/chat/jargon-decode.md"
+    },
+    {
+      "name": "options-table",
+      "mode": "chat",
+      "category": "thinking",
+      "summary": "Lay out the options against criteria you name, with an evidence column that shows which cells are actually known.",
+      "use_when": "Use when a choice has drifted into a conversation and nobody has written the options next to each other.",
+      "inputs": [
+        "The options",
+        "The criteria that matter and what the decision is"
+      ],
+      "writes": "none",
+      "outputs": "A comparison table with an evidence basis per cell, what would change the answer, and the option that was not listed.",
+      "path": "prompts/chat/options-table.md"
+    },
+    {
+      "name": "plain-english-rewrite",
+      "mode": "chat",
+      "category": "writing",
+      "summary": "Rewrite dense or evasive text in plain English and flag the sentences that turned out to mean nothing.",
+      "use_when": "Use when a paragraph reads as important and you cannot tell what it commits anyone to.",
+      "inputs": [
+        "The text to rewrite"
+      ],
+      "writes": "none",
+      "outputs": "A plain English version, a table of the terms replaced, and a list of sentences with no content.",
+      "path": "prompts/chat/plain-english-rewrite.md"
+    },
+    {
+      "name": "pre-mortem-quick",
+      "mode": "chat",
+      "category": "thinking",
+      "summary": "Assume the thing failed, then work backwards to the causes, the earliest visible signal and what to do now.",
+      "use_when": "Use when a plan is agreed, the deadline is real, and nobody wants to reopen it.",
+      "inputs": [
+        "The plan and its deadline",
+        "What success is supposed to look like"
+      ],
+      "writes": "none",
+      "outputs": "Ranked failure stories with their earliest signal, the cheapest action now, and the failure nobody is watching.",
+      "path": "prompts/chat/pre-mortem-quick.md"
+    },
+    {
+      "name": "regex-explain",
+      "mode": "chat",
+      "category": "technical",
+      "summary": "Explain a regular expression piece by piece, with examples that match, examples that do not, and the cases where it will surprise you.",
+      "use_when": "Use when you are about to trust a pattern somebody else wrote, or one you wrote a month ago.",
+      "inputs": [
+        "The pattern, and the flavour or language if you know it",
+        "What it is supposed to match"
+      ],
+      "writes": "none",
+      "outputs": "A piece by piece reading, matching and non-matching examples, the surprises, and flavour differences.",
+      "path": "prompts/chat/regex-explain.md"
+    },
+    {
+      "name": "second-order-effects",
+      "mode": "chat",
+      "category": "thinking",
+      "summary": "Trace what a decision causes after the intended effect, including how people will respond to being measured by it.",
+      "use_when": "Use when a change will alter what people are measured on, paid for or asked to report.",
+      "inputs": [
+        "The decision and its intended effect",
+        "Who is affected and how they are currently measured"
+      ],
+      "writes": "none",
+      "outputs": "First, second and third order effects with the mechanism for each, plus gaming routes and what to watch.",
+      "path": "prompts/chat/second-order-effects.md"
+    },
+    {
+      "name": "sql-read",
+      "mode": "chat",
+      "category": "technical",
+      "summary": "Read a SQL query back in plain words, name what it counts, and flag the joins and filters that quietly change the answer.",
+      "use_when": "Use when a number came from a query you did not write and you have to decide whether to trust it.",
+      "inputs": [
+        "The query",
+        "What the number is supposed to mean"
+      ],
+      "writes": "none",
+      "outputs": "A plain reading, the grain of the result, ranked traps in the joins and filters, and the checks that would confirm it.",
+      "path": "prompts/chat/sql-read.md"
+    },
+    {
+      "name": "steelman-the-objection",
+      "mode": "chat",
+      "category": "thinking",
+      "summary": "Build the strongest honest version of the argument against your position, then separate what you can answer from what you cannot.",
+      "use_when": "Use when you are about to present something and every objection in your head is an easy one.",
+      "inputs": [
+        "Your position and the reasoning behind it",
+        "Who will be objecting and what they care about"
+      ],
+      "writes": "none",
+      "outputs": "Three or four strong objections ranked by strength, your available answers, and the ones with no good answer.",
+      "path": "prompts/chat/steelman-the-objection.md"
+    },
+    {
+      "name": "subject-line-options",
+      "mode": "chat",
+      "category": "writing",
+      "summary": "Eight subject lines built on different angles, each with the promise it makes and what the body must then deliver.",
+      "use_when": "Use when the message is written and the subject line is the part still costing you ten minutes.",
+      "inputs": [
+        "What the message is about and who receives it",
+        "The action you want from the reader"
+      ],
+      "writes": "none",
+      "outputs": "Eight options across distinct angles, each with its implied promise, plus the ones that overpromise named.",
+      "path": "prompts/chat/subject-line-options.md"
+    },
+    {
+      "name": "tighten-this",
+      "mode": "chat",
+      "category": "writing",
+      "summary": "Cut a piece of writing to a stated length and show what was lost, so you can judge the trade rather than accept it.",
+      "use_when": "Use when something you wrote is too long and you want the cut shown rather than hidden.",
+      "inputs": [
+        "The text to cut",
+        "The target length"
+      ],
+      "writes": "none",
+      "outputs": "The tightened text at the target length, a list of what was cut, and anything that could not be cut without losing meaning.",
+      "path": "prompts/chat/tighten-this.md"
+    },
+    {
+      "name": "tone-shift",
+      "mode": "chat",
+      "category": "writing",
+      "summary": "Move a message along one named axis of tone and show exactly which words did the work.",
+      "use_when": "Use when a message is right in substance and wrong in temperature.",
+      "inputs": [
+        "The text",
+        "The direction, named as an axis"
+      ],
+      "writes": "none",
+      "outputs": "The shifted version, a table of the words that changed, and a warning on any change that altered the meaning.",
+      "path": "prompts/chat/tone-shift.md"
+    },
+    {
+      "name": "tradeoff-frame",
+      "mode": "chat",
+      "category": "thinking",
+      "summary": "Name the real trade-off behind a decision, who pays on each side, and the conditions under which each choice is right.",
+      "use_when": "Use when a discussion keeps going in circles because both sides are right about different things.",
+      "inputs": [
+        "The decision and the positions people are taking"
+      ],
+      "writes": "none",
+      "outputs": "The trade-off named as two goods in tension, who bears each cost, the conditions favouring each side, and any false choice.",
+      "path": "prompts/chat/tradeoff-frame.md"
+    }
+  ]
+}
