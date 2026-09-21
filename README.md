@@ -22,7 +22,7 @@ Mistral's own routing, quoted:
 | **Code** | "Pick Code when the task depends on a codebase, terminal, IDE, or coding session." |
 | **Chat** | "Pick Chat when you want a quick turn-based conversation, or when you rely on a legacy feature." |
 
-This repository covers Work and Chat. Code prompts belong next to the code, and the skills for Code live in [awesome-mistral-vibe-skills](https://github.com/kesslernity/awesome-mistral-vibe-skills?utm_source=github&utm_medium=repo&utm_campaign=amv_prompts).
+This repository covers Work and Chat prompts. Code prompts belong next to the code. Skills are a different artifact and live in [awesome-mistral-vibe-skills](https://github.com/kesslernity/awesome-mistral-vibe-skills?utm_source=github&utm_medium=repo&utm_campaign=amv_prompts).
 
 What actually differs, and why it decides the prompt:
 
@@ -339,7 +339,7 @@ The tables above are generated. `MANIFEST.json` is generated. Neither is edited 
 
 ## Related
 
-- [awesome-mistral-vibe-skills](https://github.com/kesslernity/awesome-mistral-vibe-skills?utm_source=github&utm_medium=repo&utm_campaign=amv_prompts): 137 skills in the format Vibe CLI reads, and the bodies you would paste into a Work Skill.
+- [awesome-mistral-vibe-skills](https://github.com/kesslernity/awesome-mistral-vibe-skills?utm_source=github&utm_medium=repo&utm_campaign=amv_prompts): 137 skills in the Agent Skills format. Vibe CLI reads the folder off disk and the web interface imports the same folder under Context > Skills.
 - [awesome-mistral-vibe-agents](https://github.com/kesslernity/awesome-mistral-vibe-agents?utm_source=github&utm_medium=repo&utm_campaign=amv_prompts): agent profiles for the Vibe CLI, where the humans-decide posture is expressed as a permission block rather than as prose.
 - [mistral-vibe](https://github.com/mistralai/mistral-vibe): the CLI itself, Apache 2.0.
 - The same work on the Microsoft side, five repositories: [agent skills](https://github.com/kesslernity/awesome-copilot-agent-skills?utm_source=github&utm_medium=repo&utm_campaign=amv_prompts), [Cowork skills](https://github.com/kesslernity/awesome-copilot-cowork-skills?utm_source=github&utm_medium=repo&utm_campaign=amv_prompts), [Copilot Chat agents](https://github.com/kesslernity/awesome-copilot-chat-agents?utm_source=github&utm_medium=repo&utm_campaign=amv_prompts), [Copilot Studio agents](https://github.com/kesslernity/awesome-copilot-studio-agents?utm_source=github&utm_medium=repo&utm_campaign=amv_prompts), [M365 Copilot prompts](https://github.com/kesslernity/awesome-microsoft-copilot-prompts?utm_source=github&utm_medium=repo&utm_campaign=amv_prompts). Two runtimes, one set of rules about what an agent is allowed to decide.
